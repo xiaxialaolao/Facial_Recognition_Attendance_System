@@ -84,11 +84,11 @@ pip install face_recognition opencv-python numpy scipy psutil picamera2 mysql-co
 mysql -u root -p
 
 # Create database
-CREATE DATABASE fras_db;
+CREATE DATABASE Facial_Recognition_Attendance_System;
 
 # Create user and grant privileges
 CREATE USER 'fras_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON fras_db.* TO 'fras_user'@'localhost';
+GRANT ALL PRIVILEGES ON Facial_Recognition_Attendance_System.* TO 'fras_user'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
