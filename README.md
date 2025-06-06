@@ -130,30 +130,6 @@ source FRAS_env/bin/activate
 python FEFE.py
 ```
 
-#### Method 2: Create a Startup Script (Automated Startup)
-
-Create a startup script `start_fras.sh`:
-
-```bash
-#!/bin/bash
-
-# Navigate to project directory
-cd /home/pi/FRAS_env
-
-# Activate virtual environment
-source bin/activate
-
-# Start face recognition system
-python FRAS.py
-```
-
-Set script permissions and test:
-
-```bash
-chmod +x start_fras.sh
-./start_fras.sh
-```
-
 ### Accessing the Web Interface
 
 After the system starts, you can access the web interface via a browser:
