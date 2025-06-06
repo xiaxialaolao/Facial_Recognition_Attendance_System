@@ -1,0 +1,289 @@
+/* 主题样式文件 - Raspberry Pi 主题 */
+
+/* 默认变量 - Raspberry Pi 主题 */
+:root {
+    --raspberry-red: #C51A4A;
+    --raspberry-dark-red: #9E1238;
+    --raspberry-light-red: #E83A6A;
+    --raspberry-green: #75B743;
+    --raspberry-dark-green: #5A9A28;
+    --light-bg: #F5F7FA;
+    --white: #FFFFFF;
+    --text-dark: #333333;
+    --text-light: #777777;
+    --border-light: #E1E5EB;
+    --sidebar-bg: linear-gradient(135deg, var(--raspberry-dark-red) 0%, var(--raspberry-red) 100%);
+    --sidebar-text: var(--white);
+    --main-bg: var(--light-bg);
+    --card-bg: var(--white);
+    --header-bg: var(--white);
+    --button-primary-bg: var(--raspberry-red);
+    --button-primary-text: var(--white);
+    --button-secondary-bg: #f5f5f5;
+    --button-secondary-text: var(--text-dark);
+}
+
+/* 深色主题 */
+[data-theme="dark"] {
+    --raspberry-red: #F4976C;           /* 柔和暖橘，替代原粉红，来自夕阳 */
+    --raspberry-dark-red: #D97B93;      /* 晚霞粉，偏紫红，用于强调 */
+    --raspberry-light-red: #FFD6C9;     /* 浅橘粉光感，用于 hover 高亮 */
+
+    --raspberry-green: #5FC9BC;         /* 冷绿青，城市灯光中的冷色调 */
+    --raspberry-dark-green: #2B4F59;    /* 稳定深青绿，夜景里的低饱和绿 */
+
+    --light-bg: #1C2C3A;                /* 深蓝夜空作为背景 */
+    --white: #2F2A3D;                   /* 室内紫灰色，用作卡片背景 */
+    --text-dark: #E6A8F7;              /* 高对比主文字，夜色下偏白，与海蓝调性 */
+    --text-light: #FFAA66;              /* 辅助文字，淡灰蓝调 */
+
+    --border-light: #2B2F34;            /* 暗灰边框，微弱分隔感 */
+
+    --sidebar-bg: linear-gradient(135deg, #22252A 0%, #1A1D21 100%);
+    --sidebar-text: #ECECEC;
+
+    --main-bg: var(--light-bg);
+    --card-bg: #3B3E49;                 /* 城市灯光灰蓝，卡片浮起感 */
+    --header-bg: #2F2A3D;               /* 顶部区域与卡片一致，统一调性 */
+
+    --button-primary-bg: #FF7043; /* 更亮的橙色，增强对比度 */
+    --button-primary-text: #FFFFFF;
+    --button-secondary-bg: #4DD0E1; /* 更亮的青色，增强对比度 */
+    --button-secondary-text: #000000; /* 黑色文字，最大对比度 */
+
+    .refresh-text {
+        color: var(--text-light) !important;
+    }
+}
+
+
+
+/* 梦幻主题 */
+[data-theme="fancy"] {
+    --raspberry-red: #F28A8A; /* 鲜亮霞光粉 */
+    --raspberry-dark-red: #C45D6D; /* 暗红紫，饱和过渡色 */
+    --raspberry-light-red: #FDB1B1; /* 柔粉红，适合 hover/高亮 */
+
+    --raspberry-green: #A1C6AD; /* 柔和湖绿，接近水色 */
+    --raspberry-dark-green: #5A8E88; /* 深海绿，适合强调背景 */
+
+    --light-bg: #FFE4C7; /* 海面夕光橘背景 */
+    --white: #FFF8F5; /* 暖白色，避免冷调突兀 */
+
+    --text-dark: #2C3E60; /* 深海蓝紫，清晰但不锐利 */
+    --text-light: #7D8AA0; /* 淡暮蓝灰，温和对比 */
+    --border-light: #D4D9E2; /* 淡灰紫，用于分隔线 */
+
+    --sidebar-bg: linear-gradient(145deg, #C45D6D 0%, #F28A8A 40%, #FDB86D 100%);
+    /* 从深紫红渐变到夕阳粉橘和金光 */
+
+    --sidebar-text: var(--white);
+
+    --main-bg: var(--light-bg);
+    --card-bg: #FADFD3; /* 柔橘卡片背景，适度分层 */
+    --header-bg: linear-gradient(90deg, #F28A8A 0%, #B5D2E1 100%);
+    /* 粉蓝渐变模拟海天交汇 */
+
+    --button-primary-bg: var(--raspberry-red);
+    /* 粉橘渐变，适合高亮按钮 */
+    --button-primary-text: var(--white);
+
+    --button-secondary-bg: #B5D2E1; /* 天空浅蓝，清新不抢眼 */
+    --button-secondary-text: var(--text-dark);
+}
+
+
+
+
+/* 海洋主题 */
+[data-theme="ocean"] {
+    --raspberry-red: #3BAFDA;         /* 浅海蓝（主调） */
+    --raspberry-dark-red: #236A8F;    /* 深海蓝 */
+    --raspberry-light-red: #A2DDF3;   /* 水雾蓝 */
+    --raspberry-green: #48C9B0;       /* 珊瑚绿 */
+    --raspberry-dark-green: #1ABC9C;  /* 海洋绿 */
+
+    --light-bg: #E8F8F9;              /* 海面反光浅蓝 */
+    --white: #FFFFFF;
+    --text-dark: #1F3B4D;             /* 深海石色 */
+    --text-light: #6C8EA0;            /* 海风灰蓝 */
+
+    --border-light: #C6D8DF;          /* 雾气蓝边框 */
+
+    --sidebar-bg: linear-gradient(135deg, #145374 0%, #3BAFDA 100%);
+    --sidebar-text: var(--white);
+
+    --main-bg: var(--light-bg);
+    --card-bg: var(--white);
+    --header-bg: var(--white);
+
+    --button-primary-bg: #1ABC9C;     /* 海洋绿按钮 */
+    --button-primary-text: var(--white);
+
+    --button-secondary-bg: #D9F3F2;   /* 浅蓝白沙 */
+    --button-secondary-text: var(--text-dark);
+}
+
+
+/* 应用主题变量到元素 */
+body {
+    background-color: var(--main-bg);
+    color: var(--text-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.logo-text {
+    color: var(--sidebar-text);
+    transition: color 0.3s ease;
+}
+
+.nav-link {
+    color: var(--sidebar-text);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.main-content {
+    background-color: var(--main-bg);
+    transition: background-color 0.3s ease;
+}
+
+.data-table, .settings-container, .form-container, .search-container {
+    background-color: var(--card-bg);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.1));
+}
+
+.header {
+    background-color: var(--header-bg);
+    transition: background-color 0.3s ease;
+}
+
+.submit-button, .save-button, .action-button {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover, .save-button:hover, .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color, rgba(0, 0, 0, 0.2));
+}
+
+.cancel-button {
+    background-color: var(--button-secondary-bg);
+    color: var(--button-secondary-text);
+    transition: background-color 0.3s ease;
+}
+
+/* 表格样式增强 */
+.data-table table thead th {
+    background-color: var(--table-header-bg, var(--card-bg));
+    color: var(--text-dark);
+    transition: background-color 0.3s ease;
+}
+
+.data-table table tbody tr:hover {
+    background-color: var(--table-row-hover, rgba(0, 0, 0, 0.05));
+}
+
+/* 输入框样式增强 */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    background-color: var(--input-bg, var(--white));
+    color: var(--input-text, var(--text-dark));
+    border: 1px solid var(--input-border, var(--border-light));
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--input-focus-border, var(--raspberry-red));
+    box-shadow: 0 0 0 2px rgba(var(--raspberry-red-rgb, 197, 26, 74), 0.25);
+}
+
+/* 深色主题特定增强 */
+[data-theme="dark"] .content-title {
+    color: var(--text-dark);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .welcome-text h1,
+[data-theme="dark"] .welcome-text p {
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .data-table {
+    border: 1px solid var(--border-light);
+}
+
+[data-theme="dark"] .data-table table {
+    border-color: var(--border-light);
+}
+
+[data-theme="dark"] .data-table table td,
+[data-theme="dark"] .data-table table th {
+    border-color: var(--border-light);
+}
+
+/* 深色主题按钮增强 */
+[data-theme="dark"] .submit-button,
+[data-theme="dark"] .save-button,
+[data-theme="dark"] .action-button {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+}
+
+[data-theme="dark"] .submit-button:hover,
+[data-theme="dark"] .save-button:hover,
+[data-theme="dark"] .action-button:hover {
+    box-shadow: 0 4px 12px rgba(255, 112, 67, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #FF8A65; /* 悬停时颜色更亮 */
+}
+
+[data-theme="dark"] .cancel-button {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+}
+
+[data-theme="dark"] .cancel-button:hover {
+    box-shadow: 0 4px 12px rgba(77, 208, 225, 0.3);
+    background-color: #5CDBEB; /* 悬停时颜色更亮 */
+}
+
+/* 添加RGB变量用于透明度计算 */
+:root {
+    --raspberry-red-rgb: 197, 26, 74;
+}
+
+[data-theme="dark"] {
+    --raspberry-red-rgb: 255, 64, 129;
+}

@@ -1,0 +1,148 @@
+/* 通知系统样式 */
+
+/* 通知区域 */
+#notification-area {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    pointer-events: none; /* 允许点击通知区域下方的元素 */
+}
+
+/* 通知样式 */
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    animation: slideIn 0.3s ease forwards;
+    overflow: hidden;
+    pointer-events: auto; /* 确保通知本身可以被点击 */
+    max-width: 100%;
+    cursor: pointer; /* 添加指针样式，提示可点击 */
+    transition: transform 0.2s; /* 添加过渡效果 */
+    border-left: 4px solid transparent; /* 左侧边框，颜色将由具体类型设置 */
+}
+
+/* 鼠标悬停效果 */
+.notification:hover {
+    transform: translateY(-2px); /* 轻微上移 */
+    background-color: rgba(255, 255, 255, 0.1); /* 轻微背景变化 */
+}
+
+/* 通知内容 */
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+/* 通知文本容器 */
+.notification-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 通知消息 */
+.notification-message {
+    font-size: 14px;
+}
+
+/* 点击提示 */
+.notification-hint {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+/* 成功通知 */
+.success-notification {
+    background-color: #e8f5e9;
+    border-left: 4px solid var(--raspberry-green, #75B743);
+    color: #2e7d32;
+}
+
+/* 错误通知 */
+.error-notification {
+    background-color: #ffebee;
+    border-left: 4px solid var(--raspberry-red, #C51A4A);
+    color: #c62828;
+}
+
+/* 警告通知 */
+.warning-notification {
+    background-color: #fff8e1;
+    border-left: 4px solid #ffc107;
+    color: #ff8f00;
+}
+
+/* 信息通知 */
+.info-notification {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    color: #0d47a1;
+}
+
+/* 关闭按钮 */
+.close-notification {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.close-notification:hover {
+    opacity: 1;
+}
+
+/* 隐藏动画 */
+.notification-hiding {
+    animation: slideOut 0.3s ease forwards;
+}
+
+/* 动画 */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    #notification-area {
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    .notification {
+        width: 100%;
+    }
+}

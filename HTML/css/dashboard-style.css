@@ -1,0 +1,594 @@
+/* Modern Dashboard Style - Raspberry Pi Theme */
+:root {
+    --raspberry-red: #C51A4A;
+    --raspberry-dark-red: #9E1238;
+    --raspberry-green: #75B743;
+    --raspberry-dark-green: #5A9A28;
+    --light-bg: #F5F7FA;
+    --white: #FFFFFF;
+    --text-dark: #333333;
+    --text-light: #777777;
+    --border-light: #E1E5EB;
+    --status-open: #75B743;
+    --status-pending: #F7B731;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-image: none !important;
+    background-size: 0 !important;
+    background-repeat: no-repeat !important;
+    background-position: 0 0 !important;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.welcome-text p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-box {
+    position: relative;
+    margin-right: 20px;
+}
+
+.search-box form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.search-box input {
+    padding: 10px 15px 10px 40px;
+    border: 1px solid var(--border-light);
+    border-radius: 50px;
+    width: 250px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+    background-color: var(--white); /* 确保搜索框有白色背景 */
+}
+
+.search-box input:focus {
+    border-color: var(--raspberry-green);
+    box-shadow: 0 0 0 3px rgba(117, 183, 67, 0.2);
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.user-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.action-button {
+    background-color: var(--raspberry-red);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.action-button:hover {
+    background-color: var(--raspberry-dark-red);
+}
+
+.action-button i {
+    margin-right: 8px;
+}
+
+.data-table {
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: auto; /* 改为auto，允许滚动 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative; /* 添加相对定位 */
+    max-height: 80vh; /* 限制最大高度，防止在小屏幕上占据太多空间 */
+    -webkit-overflow-scrolling: touch; /* 增强移动设备上的滚动体验 */
+}
+
+.data-table table {
+    width: 100%;
+    min-width: 800px; /* 设置最小宽度，确保在小屏幕上内容不会被压缩 */
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 横屏模式下的表格最小宽度 */
+@media (max-width: 915px) and (orientation: landscape) {
+    .data-table table {
+        min-width: 600px; /* 与JavaScript中设置的值保持一致 */
+    }
+}
+
+.data-table th {
+    background-color: var(--raspberry-red);
+    color: var(--white);
+    font-weight: 500;
+    text-align: center;
+    padding: 15px 20px;
+    border: none;
+    font-size: 14px;
+}
+
+.data-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-dark);
+    font-size: 14px;
+    text-align: center;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr:hover {
+    background-color: rgba(117, 183, 67, 0.05);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-open {
+    background-color: rgba(117, 183, 67, 0.2);
+    color: var(--status-open);
+}
+
+.status-pending {
+    background-color: rgba(247, 183, 49, 0.2);
+    color: var(--status-pending);
+}
+
+.privacy-badge {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.privacy-badge i {
+    margin-right: 5px;
+}
+
+.date-time {
+    display: flex;
+    flex-direction: column;
+}
+
+.date {
+    font-weight: 500;
+}
+
+.time {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.edit-button {
+    background-color: var(--raspberry-green);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 auto;
+}
+
+.edit-button:hover {
+    background-color: var(--raspberry-dark-green);
+}
+
+.delete-button {
+    background-color: var(--raspberry-red);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 auto;
+}
+
+.delete-button:hover {
+    background-color: var(--raspberry-dark-red);
+}
+
+/* 通知消息样式 */
+.success-message {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.error-message {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* 禁用按钮样式 - 使用更强的选择器和!important */
+button.edit-button.disabled,
+button.delete-button.disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    background-color: #f5f5f5 !important;
+    color: #999 !important;
+    pointer-events: none !important; /* 禁止所有鼠标事件 */
+}
+
+button.edit-button.disabled:hover,
+button.delete-button.disabled:hover {
+    background-color: #f5f5f5 !important;
+    color: #999 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* 添加禁用图标的样式 */
+button.edit-button.disabled i,
+button.delete-button.disabled i {
+    opacity: 0.5 !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    .search-box input {
+        width: 180px;
+    }
+
+    /* 表格响应式优化 */
+    .data-table {
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+
+    .data-table::after {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        color: var(--text-light);
+        font-size: 12px;
+        background-color: rgba(0,0,0,0.03);
+        border-top: 1px solid var(--border-light);
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 12px 15px;
+        white-space: nowrap; /* 防止文本换行 */
+    }
+
+    /* 优化操作按钮在移动端的显示 */
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .edit-button,
+    .delete-button {
+        padding: 8px;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .edit-button i,
+    .delete-button i {
+        margin: 0;
+    }
+
+    /* 优化头部区域在移动端的显示 */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .action-button {
+        align-self: flex-start;
+    }
+}
+
+/* 手机横向显示优化 */
+@media (max-width: 915px) and (orientation: landscape) {
+    /* 调整侧边栏和主内容区布局 */
+    .dashboard-container {
+        flex-direction: row;
+    }
+
+    .main-content {
+        margin-left: 50px; /* 进一步缩小侧边栏的宽度 */
+        padding: 8px; /* 减小内边距 */
+    }
+
+    /* 优化表格在横向模式下的显示 */
+    .data-table {
+        max-height: 75vh; /* 增加表格高度，尽可能展示更多内容 */
+        margin-bottom: 5px; /* 减小底部间距 */
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* 减小阴影 */
+    }
+
+    /* 调整头部区域在横向模式下的显示 */
+    .header {
+        flex-direction: row;
+        align-items: center;
+        padding: 5px 10px; /* 减小内边距 */
+        margin-bottom: 8px; /* 减小底部间距 */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 减小阴影 */
+    }
+
+    .welcome-text h1 {
+        font-size: 16px; /* 减小字体大小 */
+        margin-bottom: 0; /* 移除底部间距 */
+    }
+
+    .welcome-text p {
+        font-size: 11px; /* 减小字体大小 */
+    }
+
+    .header-actions {
+        width: auto;
+    }
+
+    .search-box input {
+        padding: 6px 10px 6px 30px; /* 减小搜索框内边距 */
+        width: 150px; /* 减小搜索框宽度 */
+        font-size: 12px; /* 减小字体大小 */
+    }
+
+    .search-box i {
+        left: 10px; /* 调整搜索图标位置 */
+    }
+
+    .user-profile {
+        width: 30px; /* 减小用户头像大小 */
+        height: 30px;
+    }
+
+    /* 优化内容标题区在横向模式下的显示 */
+    .content-header {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 8px; /* 减小底部间距 */
+        justify-content: space-between; /* 确保标题和按钮分布在两端 */
+    }
+
+    .content-title {
+        font-size: 15px; /* 减小字体大小 */
+        margin: 0; /* 移除间距 */
+    }
+
+    .action-button {
+        padding: 5px 10px; /* 减小按钮内边距 */
+        font-size: 12px; /* 减小字体大小 */
+    }
+
+    /* 优化表格在横向模式下的显示 */
+    .data-table th,
+    .data-table td {
+        padding: 6px 8px; /* 减小单元格内边距 */
+        font-size: 12px; /* 减小字体大小 */
+    }
+
+    /* 调整操作按钮在横向模式下的布局 */
+    .action-buttons {
+        justify-content: center;
+    }
+
+    .edit-button,
+    .delete-button {
+        padding: 5px; /* 减小按钮内边距 */
+        width: 24px; /* 减小按钮大小 */
+        height: 24px;
+    }
+
+    .edit-button i,
+    .delete-button i {
+        font-size: 12px; /* 减小图标大小 */
+    }
+
+    /* 优化滑动指示器在横向模式下的显示 */
+    .swipe-indicator {
+        padding: 3px !important; /* 减小内边距 */
+        font-size: 10px !important; /* 减小字体大小 */
+    }
+
+    /* 优化用户头像在横向模式下的显示 */
+    .user-avatar {
+        width: 28px; /* 减小头像大小 */
+        height: 28px;
+    }
+
+    /* 优化状态标签在横向模式下的显示 */
+    .status-badge {
+        padding: 2px 8px; /* 减小内边距 */
+        font-size: 10px; /* 减小字体大小 */
+    }
+
+    /* 优化日期时间显示在横向模式下的显示 */
+    .date {
+        font-size: 11px; /* 减小字体大小 */
+    }
+
+    .time {
+        font-size: 10px; /* 减小字体大小 */
+    }
+
+    /* 优化通知消息在横向模式下的显示 */
+    .success-message,
+    .error-message {
+        padding: 5px 10px; /* 减小内边距 */
+        font-size: 12px; /* 减小字体大小 */
+        margin-bottom: 8px; /* 减小底部间距 */
+    }
+
+    /* 减小表格之间的间距 */
+    .data-table table {
+        border-spacing: 0;
+    }
+}
+
+
+/* 响应式布局：适配手机和平板 */
+@media (max-width: 768px) {
+    .fras-404-title {
+        font-size: 120px;
+    }
+    .fras-404-text {
+        font-size: 20px;
+    }
+    .fras-404-link {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fras-404-title {
+        font-size: 80px;
+    }
+    .fras-404-text {
+        font-size: 18px;
+    }
+    .fras-404-link {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+}

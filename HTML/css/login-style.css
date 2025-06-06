@@ -1,0 +1,160 @@
+/* 全局基础设置 */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #C51A4A; /* 树莓派红背景 */
+    color: #C51A4A; /* 树莓派红字体 */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+}
+
+/* 页面淡出效果 */
+body.fade-out {
+    background-color: #FFFFFF;
+    transition: background-color 1s ease;
+}
+
+body.fade-out .login-box {
+    opacity: 0;
+}
+
+/* 中心登录框 */
+.login-box {
+    background: rgba(255, 255, 255, 0.8); /* 半透明白色 */
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #c5284c; /* 树莓派红色边 */
+    width: 100%;
+    max-width: 400px; /* 最大宽度400px */
+    text-align: center;
+    margin: 0 auto; /* 保证水平居中 */
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+
+/* Logo 容器 */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Logo 样式 */
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: all 0.5s ease;
+}
+
+/* 动画容器 */
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #C51A4A; /* 树莓派红背景 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#animation-logo {
+    cursor: pointer; /* 指示可点击 */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#animation-logo:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* 放大效果 */
+    filter: brightness(1.2); /* 增加亮度 */
+}
+
+#animation-logo:hover + .animation-hint,
+.animation-hint:hover {
+    opacity: 1;
+}
+
+/* 标题 */
+.title {
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #c5284c; /* 树莓派红色标题 */
+    transition: opacity 0.5s ease;
+}
+
+/* 输入框 */
+.input-field {
+    width: 95%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #00a000; /* 树莓派绿色底线 */
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    transition: opacity 0.5s ease;
+}
+
+/* 登录按钮 */
+.login-button {
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: #C51A4A; /* 树莓派红色文字 */
+    border: 2px solid #C51A4A;
+    padding: 10px 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, opacity 0.5s ease;
+}
+
+.login-button:hover {
+    background-color: #6ABF4B; /* 树莓派绿hover背景 */
+    color: #000000; /* hover时黑色字 */
+    border-color: #6ABF4B; /* hover时绿色边框 */
+}
+
+
+/* 注册文字 */
+.signup-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+}
+
+.signup-text a {
+    color: #c5284c; /* 树莓派红色链接 */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+/* 错误信息 */
+.error-message {
+    margin-top: 15px;
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 小屏幕优化 */
+@media (max-width: 400px) {
+    .login-box {
+        padding: 40px 20px; /* 两边内距缩小，不那么紧绷 */
+        margin: 40px 20px; /* 四周留空，画面更松 */
+    }
+}

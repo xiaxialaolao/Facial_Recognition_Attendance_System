@@ -1,0 +1,122 @@
+/* 全局基础设置 */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000000; /* 背景黑色 */
+    color: #C51A4A; /* 树莓红字体 */
+}
+
+/* FRAS专用：通用容器和卡片 */
+.fras-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.fras-card {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* FRAS专用：按钮样式 */
+.fras-button {
+    display: inline-block;
+    background-color: #C51A4A;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.fras-button:hover {
+    background-color: #6ABF4B; /* 树莓绿 */
+    color: #000000;
+}
+
+/* 404 页面专用样式 */
+body.fras-404 {
+    background-color: #000000;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 50px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.fras-404-title {
+    font-size: 200px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: popUp 1s ease forwards;
+}
+
+.fras-404-text {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.fras-404-link {
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: #C51A4A;
+    border: 2px solid #C51A4A;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.fras-404-link:hover {
+    background-color: #6ABF4B;
+    color: #000000;
+    border-color: #6ABF4B;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popUp {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 响应式布局：适配手机和平板 */
+@media (max-width: 768px) {
+    .fras-404-title {
+        font-size: 120px;
+    }
+    .fras-404-text {
+        font-size: 20px;
+    }
+    .fras-404-link {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fras-404-title {
+        font-size: 80px;
+    }
+    .fras-404-text {
+        font-size: 18px;
+    }
+    .fras-404-link {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+}

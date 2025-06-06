@@ -1,0 +1,237 @@
+        /* 监控容器样式 */
+        .monitoring-container {
+            padding: 20px;
+            background-color: var(--light-bg, rgba(248, 249, 250, 0.8));
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 视频容器样式 */
+        .video-container {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        /* 视频流样式 */
+        .video-stream {
+            display: inline-block;
+            max-width: 1000%;
+            width: 100%;  /* 增加电脑端视频宽度 */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-stream img {
+            width: 100%;
+            max-width: 1200px;  /* 增加最大宽度 */
+            display: block;
+        }
+
+        /* 流控制区域样式 */
+        .stream-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* 流信息样式 */
+        .stream-info {
+            padding: 8px;
+            background-color: var(--light-bg, rgba(248, 249, 250, 0.8));
+            border-radius: 4px;
+            text-align: left;
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .stream-url {
+            margin-bottom: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stream-url code {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            max-width: 100%;
+        }
+
+        /* 全屏按钮样式 */
+        .fullscreen-button {
+            margin-top: 10px;
+            background-color: var(--raspberry-red, #c51d4a);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .fullscreen-button:hover {
+            background-color: #a01540;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 视频占位符样式 */
+        .video-placeholder {
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .video-placeholder i {
+            font-size: 48px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .video-placeholder p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* 控制按钮容器 */
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* 刷新按钮样式 */
+        .refresh-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .refresh-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 响应式样式 */
+        @media (max-width: 768px) {
+            .monitoring-container {
+                padding: 15px 10px;
+                max-width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .video-container {
+                margin: 10px 0;
+            }
+
+            .video-stream {
+                width: 100%;
+                border-radius: 6px;
+            }
+
+            .video-stream img {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .video-container {
+                max-width: 100%;
+            }
+
+            .stream-controls {
+                flex-direction: column;
+                align-items: center;
+                margin: 15px 0;
+                gap: 15px;
+            }
+
+            .stream-info {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+                box-sizing: border-box;
+                overflow-x: auto;
+            }
+
+            .stream-url code {
+                font-size: 12px;
+                word-break: break-all;
+                white-space: normal;
+            }
+
+            .fullscreen-button {
+                width: 100%;
+                justify-content: center;
+                margin-top: 5px;
+            }
+
+            .content-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .content-header .action-button {
+                align-self: flex-start;
+            }
+        }
+
+        /* 超小屏幕设备 */
+        @media (max-width: 480px) {
+            .monitoring-container {
+                padding: 10px 5px;
+            }
+
+            .content-title {
+                font-size: 18px;
+            }
+
+            .stream-url .info-label {
+                display: block;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .stream-url code {
+                font-size: 11px;
+                padding: 3px 6px;
+            }
+
+            .fullscreen-button {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+        }

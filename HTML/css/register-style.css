@@ -1,0 +1,216 @@
+        /* 覆盖login-style.css中的body样式 */
+        body.register-page {
+            height: auto;
+            min-height: 100%;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        /* 注册框样式 */
+        .register-box {
+            max-width: 500px;
+            padding: 30px;
+            max-height: 90vh; /* 限制最大高度为视口高度的90% */
+            overflow-y: auto; /* 添加垂直滚动条 */
+            margin: 20px auto; /* 上下留出空间 */
+        }
+
+        /* 自定义滚动条样式 */
+        .register-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .register-box::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .register-box::-webkit-scrollbar-thumb {
+            background: #C51A4A;
+            border-radius: 10px;
+        }
+
+        .register-box::-webkit-scrollbar-thumb:hover {
+            background: #a01a3c;
+        }
+
+        .profile-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin: 0 auto 15px; /* 减少底部间距 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .profile-preview i {
+            font-size: 50px;
+            color: #C51A4A;
+        }
+
+        .profile-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            padding: 6px 14px; /* 减少内边距 */
+            background-color: #6ABF4B;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px; /* 减少底部间距 */
+            transition: background-color 0.3s;
+            font-size: 14px; /* 减小字体大小 */
+        }
+
+        .file-input-label:hover {
+            background-color: #5aa03b;
+        }
+
+        /* 覆盖login-style.css中的输入框样式 */
+        .register-box .input-field {
+            margin: 6px 0; /* 减少上下间距 */
+            padding: 10px; /* 减少内边距 */
+        }
+
+        /* 覆盖login-style.css中的按钮样式 */
+        .register-box .login-button {
+            margin-top: 15px; /* 减少顶部间距 */
+            padding: 8px 20px; /* 减少内边距 */
+        }
+
+        .signup-text {
+            margin-top: 15px; /* 减少顶部间距 */
+            font-size: 14px;
+            color: #000;
+        }
+
+        .signup-text a {
+            color: #c5284c;
+            text-decoration: none;
+        }
+
+        /* 图片裁剪模态框样式 */
+        .image-cropper-container {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .cropper-box {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .cropper-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #C51A4A;
+            text-align: center;
+        }
+
+        .img-container {
+            max-height: 400px;
+            margin-bottom: 15px;
+        }
+
+        .img-container img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .img-preview {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 2px solid #C51A4A;
+        }
+
+        .cropper-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .crop-cancel, .crop-submit {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .crop-cancel {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .crop-submit {
+            background-color: #6ABF4B;
+            color: white;
+        }
+
+        /* 响应式设计 */
+        @media (min-height: 800px) {
+            /* 在较高的屏幕上增加一些间距 */
+            .register-box {
+                max-height: 85vh;
+                margin: 30px auto;
+            }
+        }
+
+        @media (max-height: 700px) {
+            /* 在较低的屏幕上进一步减少间距 */
+            .register-box {
+                padding: 20px;
+                max-height: 95vh;
+            }
+
+            .profile-preview {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 10px;
+            }
+
+            .file-input-label {
+                margin-bottom: 8px;
+            }
+
+            .register-box .input-field {
+                margin: 4px 0;
+                padding: 8px;
+            }
+
+            .register-box .login-button {
+                margin-top: 10px;
+                padding: 6px 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            /* 在较窄的屏幕上调整样式 */
+            .register-box {
+                padding: 20px 15px;
+            }
+        }
