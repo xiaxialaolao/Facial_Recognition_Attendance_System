@@ -84,11 +84,11 @@ pip install face_recognition opencv-python numpy scipy psutil picamera2 mysql-co
 mysql -u root -p
 
 # 创建数据库
-CREATE DATABASE fras_db;
+CREATE DATABASE Facial_Recognition_Attendance_System;
 
 # 创建用户并授权
 CREATE USER 'fras_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON fras_db.* TO 'fras_user'@'localhost';
+GRANT ALL PRIVILEGES ON Facial_Recognition_Attendance_System.* TO 'fras_user'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
@@ -128,23 +128,6 @@ source FRAS_env/bin/activate
 
 # 运行人脸特征提取
 python FEFE.py
-```
-
-#### 方法 2：创建启动脚本（自动化启动）
-
-创建一个启动脚本 `start_fras.sh`：
-
-```bash
-#!/bin/bash
-
-# 进入项目目录
-cd /home/pi/FRAS_env
-
-# 激活虚拟环境
-source bin/activate
-
-# 启动人脸识别系统
-python FRAS.py
 ```
 
 ### 访问网页界面
@@ -255,7 +238,7 @@ http://[树莓派IP地址]:80
 
 - 检查数据库服务是否运行：`sudo systemctl status mysql`
 - 验证数据库凭据是否正确（检查 config.php 和 db_connector.py）
-- 尝试手动连接数据库：`mysql -u fras_user -p fras_db`
+- 尝试手动连接数据库：`mysql -u fras_user -p Facial_Recognition_Attendance_System`
 - 检查数据库日志：`sudo tail -f /var/log/mysql/error.log`
 - 重启数据库服务：`sudo systemctl restart mysql`
 
