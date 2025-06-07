@@ -1,6 +1,8 @@
 
 # Linux Development Environment and Python Virtual Environments
 
+# Note: Replace the user name, file, 和 folder name according to your own situation
+
 ## Part 1: Burn the OS to the SIM Card
 
 1. Install the Imager from official website:  
@@ -20,7 +22,7 @@
 
 8. Wait for the OS to be burned.
 
-9. After finish, take out the SIM card, put it into the card slot, and run Raspberry Pi.
+9. After finish, take out the SIM card, put it into the card slot, run Raspberry Pi.
 
 ---
 
