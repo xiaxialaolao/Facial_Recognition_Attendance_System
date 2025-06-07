@@ -95,7 +95,7 @@ Configurable in FEFE.py:
 
 ## Directory Structure
 
-<img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Directory%20Structure.png" width="35%">
+<img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Directory%20Structure.png" width="40%">
 
 ## Important Notes
 
