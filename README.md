@@ -2,6 +2,8 @@
 
 A Raspberry Pi-based face recognition attendance system that supports real-time face detection, recognition, attendance recording, and features a web management interface.
 
+## Schematic diagram
+
 <img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Schematic%20Diagram.png" width="75%">
 
 ## System Architecture
