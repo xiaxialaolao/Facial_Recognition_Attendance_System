@@ -2,6 +2,8 @@
 
 A Raspberry Pi-based face recognition attendance system that supports real-time face detection, recognition, attendance recording, and features a web management interface.
 
+![image](https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Schematic%20diagram/Final.png)
+
 ## System Architecture
 
 The system consists of three main components:
@@ -56,88 +58,6 @@ Provides a user-friendly management interface:
 - At least 16GB storage space
 - MySQL/MariaDB database
 
-### Initial Setup
-
-1. Clone or download the project to your Raspberry Pi
-
-2. Create and activate a virtual environment (recommended):
-
-```bash
-# Create virtual environment
-python -m venv FRAS_env
-
-# Activate virtual environment
-source FRAS_env/bin/activate
-```
-
-3. Install dependencies:
-
-```bash
-# Install required Python packages
-pip install face_recognition opencv-python numpy scipy psutil picamera2 mysql-connector-python
-```
-
-4. Configure the database:
-
-```bash
-# Login to MySQL
-mysql -u root -p
-
-# Create database
-CREATE DATABASE Facial_Recognition_Attendance_System;
-
-# Create user and grant privileges
-CREATE USER 'fras_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON Facial_Recognition_Attendance_System.* TO 'fras_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-5. Modify database configuration:
-   - Edit the `HTML/config.php` file, update database connection information
-   - Edit the `db_connector.py` file, update database connection information
-
-### Starting the System
-
-#### Method 1: Directly Start Components
-
-1. Start the face recognition system:
-
-```bash
-# Ensure virtual environment is activated
-source FRAS_env/bin/activate
-
-# Start face recognition system
-python FRAS.py
-```
-
-2. Start the web server (if not automatically started in FRAS.py):
-
-```bash
-# Ensure virtual environment is activated
-source FRAS_env/bin/activate
-
-# Start web server
-python web_server.py
-```
-
-3. Run face feature extraction (as needed):
-
-```bash
-# Ensure virtual environment is activated
-source FRAS_env/bin/activate
-
-# Run face feature extraction
-python FEFE.py
-```
-
-### Accessing the Web Interface
-
-After the system starts, you can access the web interface via a browser:
-
-```
-http://[Raspberry Pi IP address]:80
-```
-
 ## Face Data Collection
 
 ### Method 1: Collection via Web Interface
@@ -191,67 +111,6 @@ Configurable in FEFE.py:
 ├── Image_DataSet/          # Face image dataset
 └── Encoding_DataSet/       # Feature encoding dataset
 ```
-
-## Common Issues and Solutions
-
-### 1. System Cannot Recognize Faces
-
-- **Note: The face recognition model used in the system is relatively outdated**, with limited accuracy, and the recognition code implementation is not optimal, which may cause recognition issues
-- The system works normally under ideal conditions but may perform poorly in complex environments
-- Ensure adequate lighting, avoid backlighting
-- Adjust camera position to ensure faces are clearly visible
-- **Note distance factor**: Excessive distance will result in failed recognition, it's recommended to control an appropriate distance (typically 0.5-1.5 meters is suitable)
-- Increase the number of facial images for each user (at least 10 images recommended)
-- Try lowering the `RECOGNITION_TOLERANCE` value (modify in FRAS.py)
-- Check if the user's feature encoding file exists in the `Encoding_DataSet` directory
-- Run `FEFE.py` to regenerate feature encodings
-- Consider using more modern face recognition libraries or models to improve accuracy (if needed for practical applications)
-
-### 2. Web Interface Cannot Be Accessed
-
-- Confirm the Web server is started
-- Check firewall settings, ensure port 80 is open
-- Verify the Raspberry Pi IP address is correct
-- Check network connection
-- View Web server logs: `tail -f logs/web_server.log`
-- Try restarting the Web server: `python web_server.py`
-
-### 3. Image Acquisition Failure
-
-- Ensure the user has sufficient storage space: `df -h`
-- Check if the camera connection is normal: `vcgencmd get_camera`
-- Verify the user has write permissions to the Image_DataSet directory: `ls -la Image_DataSet/`
-- Check error messages in log files: `tail -f logs/system.log`
-- Ensure the directory exists: `mkdir -p Image_DataSet`
-- Try restarting the system
-
-### 4. System Performance Issues
-
-- Lower camera resolution (current default is 1280x720, can be modified in FRAS.py by changing CAMERA_WIDTH and CAMERA_HEIGHT)
-- Reduce the number of faces being recognized simultaneously
-- Turn off unnecessary system services: `sudo systemctl disable <service_name>`
-- Monitor system resource usage: `top` or `htop`
-- Check system temperature: `vcgencmd measure_temp`
-- Consider hardware upgrades (more RAM or faster SD card)
-
-### 5. Database Connection Issues
-
-- Check if the database service is running: `sudo systemctl status mysql`
-- Verify database credentials are correct (check config.php and db_connector.py)
-- Try connecting to the database manually: `mysql -u fras_user -p fras_db`
-- Check database logs: `sudo tail -f /var/log/mysql/error.log`
-- Restart database service: `sudo systemctl restart mysql`
-
-### 6. Camera Issues
-
-- Check if the camera is being used by other processes: `sudo lsof /dev/video0`
-- Verify camera permissions: `ls -la /dev/video*`
-- Try reloading the camera module:
-  ```bash
-  sudo rmmod bcm2835-v4l2
-  sudo modprobe bcm2835-v4l2
-  ```
-- For Pi cameras, ensure the camera interface is enabled in `raspi-config`
 
 ## Important Notes
 
