@@ -2,6 +2,10 @@
 
 一个基于树莓派的人脸识别考勤系统，支持实时人脸检测、识别和考勤记录，具有网页管理界面。
 
+## 示意图
+
+<img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Schematic%20Diagram.png" width="75%">
+
 ## 系统架构
 
 该系统由三个主要组件组成：
@@ -56,88 +60,6 @@
 - 至少 16GB 存储空间
 - MySQL/MariaDB 数据库
 
-### 初始设置
-
-1. 克隆或下载项目到树莓派
-
-2. 创建并激活虚拟环境（推荐）：
-
-```bash
-# 创建虚拟环境
-python -m venv FRAS_env
-
-# 激活虚拟环境
-source FRAS_env/bin/activate
-```
-
-3. 安装依赖：
-
-```bash
-# 安装所需的 Python 包
-pip install face_recognition opencv-python numpy scipy psutil picamera2 mysql-connector-python
-```
-
-4. 配置数据库：
-
-```bash
-# 登录 MySQL
-mysql -u root -p
-
-# 创建数据库
-CREATE DATABASE Facial_Recognition_Attendance_System;
-
-# 创建用户并授权
-CREATE USER 'fras_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON Facial_Recognition_Attendance_System.* TO 'fras_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-5. 修改数据库配置：
-   - 编辑 `HTML/config.php` 文件，更新数据库连接信息
-   - 编辑 `db_connector.py` 文件，更新数据库连接信息
-
-### 启动系统
-
-#### 方法 1：直接启动各组件
-
-1. 启动人脸识别系统：
-
-```bash
-# 确保已激活虚拟环境
-source FRAS_env/bin/activate
-
-# 启动人脸识别系统
-python FRAS.py
-```
-
-2. 启动网页服务器（如果未在 FRAS.py 中自动启动）：
-
-```bash
-# 确保已激活虚拟环境
-source FRAS_env/bin/activate
-
-# 启动网页服务器
-python web_server.py
-```
-
-3. 运行人脸特征提取（按需）：
-
-```bash
-# 确保已激活虚拟环境
-source FRAS_env/bin/activate
-
-# 运行人脸特征提取
-python FEFE.py
-```
-
-### 访问网页界面
-
-系统启动后，可以通过浏览器访问网页界面：
-
-```
-http://[树莓派IP地址]:80
-```
-
 ## 人脸数据采集
 
 ### 方法 1：通过网页界面采集
@@ -175,83 +97,7 @@ http://[树莓派IP地址]:80
 
 ## 目录结构
 
-```
-├── FRAS.py                 # 主人脸识别系统
-├── FEFE.py                 # 人脸特征提取与编码
-├── web_server.py           # Web 服务器
-├── db_connector.py         # 数据库连接器
-├── gpio_control.py         # GPIO 控制模块
-├── HTML/                   # 网页界面文件
-│   ├── config.php          # 数据库配置
-│   ├── dashboard.php       # 仪表盘页面
-│   ├── image_acquisition.php # 图像采集页面
-│   ├── login.php           # 登录页面
-│   ├── log.php             # 日志查看页面
-│   └── ...                 # 其他网页文件
-├── Image_DataSet/          # 人脸图像数据集
-└── Encoding_DataSet/       # 特征编码数据集
-```
-
-## 常见问题和解决方案
-
-### 1. 系统无法识别人脸
-
-- **注意：系统使用的人脸识别模型相对过时**，准确率有限，且识别代码实现不算优质，可能导致识别问题
-- 系统在理想条件下可以正常工作，但在复杂环境中可能表现不佳
-- 确保光线充足，避免背光
-- 调整摄像头位置，确保人脸清晰可见
-- **注意距离因素**：距离过远会导致无法识别，建议自己把控合适的距离（通常 0.5-1.5 米为宜）
-- 增加每个用户的人脸图像数量（建议至少 10 张）
-- 尝试降低 `RECOGNITION_TOLERANCE` 值（在 FRAS.py 中修改）
-- 检查 `Encoding_DataSet` 目录中是否存在用户的特征编码文件
-- 运行 `FEFE.py` 重新生成特征编码
-- 考虑使用更现代的人脸识别库或模型来提高准确率（如需用于实际应用）
-
-### 2. 网页界面无法访问
-
-- 确认 Web 服务器已启动
-- 检查防火墙设置，确保端口 80 已开放
-- 验证树莓派 IP 地址是否正确
-- 检查网络连接
-- 查看 Web 服务器日志：`tail -f logs/web_server.log`
-- 尝试重启 Web 服务器：`python web_server.py`
-
-### 3. 图像采集失败
-
-- 确保用户有足够的存储空间：`df -h`
-- 检查摄像头连接是否正常：`vcgencmd get_camera`
-- 验证用户对 Image_DataSet 目录有写入权限：`ls -la Image_DataSet/`
-- 检查日志文件中的错误信息：`tail -f logs/system.log`
-- 确保目录存在：`mkdir -p Image_DataSet`
-- 尝试重启系统
-
-### 4. 系统性能问题
-
-- 降低摄像头分辨率（当前默认为 1280x720，可在 FRAS.py 中修改 CAMERA_WIDTH 和 CAMERA_HEIGHT）
-- 减少同时识别的人脸数量
-- 关闭不必要的系统服务：`sudo systemctl disable <service_name>`
-- 监控系统资源使用情况：`top` 或 `htop`
-- 检查系统温度：`vcgencmd measure_temp`
-- 考虑升级硬件（更多 RAM 或更快的 SD 卡）
-
-### 5. 数据库连接问题
-
-- 检查数据库服务是否运行：`sudo systemctl status mysql`
-- 验证数据库凭据是否正确（检查 config.php 和 db_connector.py）
-- 尝试手动连接数据库：`mysql -u fras_user -p Facial_Recognition_Attendance_System`
-- 检查数据库日志：`sudo tail -f /var/log/mysql/error.log`
-- 重启数据库服务：`sudo systemctl restart mysql`
-
-### 6. 摄像头问题
-
-- 检查摄像头是否被其他进程占用：`sudo lsof /dev/video0`
-- 验证摄像头权限：`ls -la /dev/video*`
-- 尝试重新加载摄像头模块：
-  ```bash
-  sudo rmmod bcm2835-v4l2
-  sudo modprobe bcm2835-v4l2
-  ```
-- 对于 Pi 摄像头，确保在 `raspi-config` 中启用了摄像头接口
+<img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Directory%20Structure.png" width="40%">
 
 ## 注意事项
 
@@ -263,4 +109,3 @@ http://[树莓派IP地址]:80
 - 请妥善保管用户数据，遵守相关隐私法规
 - 定期备份数据库和人脸图像数据集
 - 系统需要稳定的电源供应，建议使用官方电源适配器
-
