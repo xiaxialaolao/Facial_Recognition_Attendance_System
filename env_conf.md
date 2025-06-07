@@ -1,7 +1,7 @@
 
 # Linux Development Environment and Python Virtual Environments
 
-# Note: Replace the user name, file, 和 folder name according to your own situation
+### Note: Replace the user name, file and folder name according to your own situation
 
 ## Part 1: Burn the OS to the SIM Card
 
