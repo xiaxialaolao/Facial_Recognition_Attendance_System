@@ -2,7 +2,7 @@
 
 A Raspberry Pi-based face recognition attendance system that supports real-time face detection, recognition, attendance recording, and features a web management interface.
 
-![image](https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Schematic%20Diagram.png)
+<img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Schematic%20Diagram.png" width="75%">
 
 ## System Architecture
 
@@ -95,7 +95,7 @@ Configurable in FEFE.py:
 
 ## Directory Structure
 
-<img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Directory%20Structure.png" width="50%">
+<img src="https://github.com/xiaxialaolao/Facial_Recognition_Attendance_System/blob/main/Flow%20Diagram/Directory%20Structure.png" width="35%">
 
 ## Important Notes
 
